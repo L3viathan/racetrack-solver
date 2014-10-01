@@ -36,7 +36,7 @@ def linedistance(pos1,line):
 evaluation_function = linedistance
 
 seen = Counter()
-shortest = [1]*30
+shortest = ":)"*15
 
 def turn(car,history):
 	global shortest
