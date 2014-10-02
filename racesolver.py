@@ -46,6 +46,9 @@ def middle_point(line):
 car = (4,25,0,-1)
 goal = ((0,26),(10,26))
 goal_helper = ((0,25.5),(10,25.5))
+# car = (28,10,0,-1)
+# goal = ((15,12),(31,12))
+# goal_helper = ((15,11.5),(31,11.5))
 board = build_path([(14,0),(29,4),(31,8),(31,39),(28,42),(18,44),(3,41),(0,22),(6,5),(14,0)]) | build_path([(14,9),(25,11),(25,23),(24,27),(24,35),(18,37),(11,35),(9,33),(10,20),(8,14),(14,9)])
 
 evaluation_function = linedistance
@@ -65,9 +68,9 @@ def turn(car,history):
 	for move in sorted(moves(car,board),key=lambda x: evaluation_function(x,goal)):
 		if line_intersection((car,move), goal):
 			if len(shortest) > len(history)+2:
-				print("Found something:")
-				print(history + [car] + [move])
 				shortest = history + [car] + [move]
+				print("Found route of length ",len(shortest))
+				print(shortest)
 		else:
 			turn(move,history + [car])
 	return shortest
@@ -75,4 +78,5 @@ def turn(car,history):
 print("Car:",car)
 print("Goal:",goal)
 print("Board:",board)
+print("Reticulating splines...")
 turn(car,[])
