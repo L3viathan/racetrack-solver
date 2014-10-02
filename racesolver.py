@@ -17,7 +17,7 @@ from geometry import *
 from collections import Counter
 from time import sleep
 
-options = docopt.docopt(__doc__, version="Racetrack-Solver 1.0.0c")
+options = docopt.docopt(__doc__, version="Racetrack-Solver 1.1.0")
 
 def moves(car,board):
 	'''Returns all possible legal moves for a given car'''
